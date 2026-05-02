@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Ein responsiver Pokédex mit Daten aus der PokéAPI." />
+  <title>Pokédex</title>
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ccircle cx='50' cy='50' r='46' fill='%23ef4444'/%3E%3Cpath d='M4 50h92' stroke='%23111827' stroke-width='8'/%3E%3Ccircle cx='50' cy='50' r='18' fill='white' stroke='%23111827' stroke-width='8'/%3E%3C/svg%3E" />
+  <link rel="preconnect" href="https://pokeapi.co" />
+  <link rel="preconnect" href="https://raw.githubusercontent.com" />
+  <link rel="stylesheet" href="style.css" />
+  <script src="script.js" defer></script>
+</head>
+<body>
+  <header class="site-header">
+    <div class="header-content">
+      <a class="logo" href="#" aria-label="Pokédex Startseite">
+        <span class="logo-ball"></span>
+        <span>Pokédex</span>
+      </a>
+
+     <form id="searchForm" class="search-form">
+  <div class="search-wrapper">
+    <input id="searchInput" type="text" placeholder="Pokémon suchen..." autocomplete="off">
+    <div id="suggestionBox" class="suggestion-box"></div>
+  </div>
+
+  <button type="submit">Suchen</button>
+</form>
+
+<div id="messageBox"></div>
+
+<button id="backHomeButton" class="hidden">Zurück zur Startseite</button>
+    </div>
+  </header>
+
+  <main class="page-wrapper">
+    <section class="hero">
+      <div>
+        <p class="eyebrow">Trainer Register</p>
+        <h1>Finde dein Lieblings-Pokémon</h1>
+      </div>
+      <p class="hero-text">Durchsuche Pokémon, öffne Detailkarten und sieh dir Werte, Fähigkeiten und Typen an.</p>
+    </section>
+
+    <p class="message" id="messageBox" aria-live="polite"></p>
+    <section class="pokemon-grid" id="pokemonGrid" aria-label="Pokémon Karten"></section>
+
+    <div class="load-more-wrapper">
+      <button class="load-more-button" id="loadMoreButton" type="button">Weitere 20 Pokémon laden</button>
+    </div>
+  </main>
+
+  <div class="loader-overlay hidden" id="loaderOverlay" aria-live="polite">
+    <div class="loader-card">
+      <span class="spinner"></span>
+      <p>Pokémon werden geladen...</p>
+    </div>
+  </div>
+
+  <div class="detail-overlay hidden" id="detailOverlay" aria-hidden="true">
+    <article class="detail-card" id="detailCard" role="dialog" aria-modal="true" aria-labelledby="detailName">
+      <button class="close-button" id="closeOverlayButton" type="button" aria-label="Detailansicht schließen">×</button>
+      <div id="detailContent"></div>
+      <div class="detail-navigation">
+        <button id="previousPokemonButton" type="button" aria-label="Vorheriges Pokémon">‹</button>
+        <button id="nextPokemonButton" type="button" aria-label="Nächstes Pokémon">›</button>
+      </div>
+    </article>
+  </div>
+</body>
+</html>
