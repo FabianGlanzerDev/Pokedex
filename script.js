@@ -417,7 +417,7 @@ function capitalizeWord(word) {
   return word.charAt(0).toUpperCase() + word.slice(1);
 }
 
-// Übersetzt Statuswerte auf Deutsch.
+// Übersetzt die Statuswerte auf Deutsch.
 function translateStat(statName) {
   const statNames = {
     hp: 'KP',
@@ -431,7 +431,7 @@ function translateStat(statName) {
   return statNames[statName] || statName;
 }
 
-// Übersetzt Pokémon-Typen auf Deutsch.
+// Übersetzt die Pokémon-Typen auf Deutsch.
 function translateType(typeName) {
   const typeNames = {
     normal: 'Normal',
