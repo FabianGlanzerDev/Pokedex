@@ -160,6 +160,7 @@ function showNextPokemon() {
 }
 
 function closeOverlay() {
+  closeOverlayButton.blur();
   detailOverlay.classList.add('hidden');
   document.body.classList.remove('overlay-open');
   detailOverlay.setAttribute('aria-hidden', 'true');
