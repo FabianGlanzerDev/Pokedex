@@ -342,7 +342,7 @@ async function chooseSuggestion(name) {
 async function showSearchResult(searchValue) {
   showLoader(true);
 
-  const names = getMatchingNames(searchValue.toLowerCase(), maxPokemonAmount);
+  const names = getExactOrMatchingNames(searchValue.toLowerCase());
   if (names.length === 0) return showNoResult();
 
   const pokemonList = await Promise.all(names.map(loadPokemon));
@@ -350,6 +350,16 @@ async function showSearchResult(searchValue) {
   backHomeButton.classList.remove('hidden');
 
   showLoader(false);
+}
+// Zeigt nur EINEN Pokemon an und nicht 20 verschiedene sowie bei Pikachu //
+function getExactOrMatchingNames(searchValue) {
+  const cleanValue = searchValue.toLowerCase().replaceAll(' ', '-');
+
+  if (allPokemonNames.includes(cleanValue)) {
+    return [cleanValue];
+  }
+
+  return getMatchingNames(cleanValue, maxSearchAmount);
 }
 
 // Meldung, falls kein Pokémon gefunden wurde.
