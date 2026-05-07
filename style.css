@@ -37,6 +37,8 @@ button {
   cursor: pointer;
 }
 
+/*HEADER*/
+
 .site-header {
   position: sticky;
   top: 0;
@@ -118,6 +120,7 @@ button:disabled {
   opacity: 0.55;
   transform: none !important;
 }
+/*MAIN-CONTENT*/
 
 .hero {
   display: flex;
@@ -466,11 +469,13 @@ h1 {
   overflow: hidden;
   clip: rect(0, 0, 0, 0);
 }
+
 /*FOOTER*/
+
 .footer {
   margin-top: 64px;
   padding: 24px;
-  border-top: 1px solid rgba(120,120,120,0.2);
+  border-top: 1px solid rgba(120, 120, 120, 0.2);
 }
 
 .footer-content {
@@ -489,26 +494,37 @@ h1 {
   display: flex;
   align-items: center;
   gap: 12px;
-
   font-weight: 700;
   font-size: 18px;
 }
 
 .footer-brand img {
-  width: 42px;
-  height: 42px;
+  width: 100px;
+  height: 80px;
   object-fit: contain;
 }
 
 .github-link {
+  display: flex;
+  align-items: center;
+  gap: 10px;
   text-decoration: none;
   font-weight: 600;
   transition: 0.2s;
 }
 
+.github-link img {
+  width: 250px;
+  height: 50px;
+  object-fit: contain;
+  filter: invert(100%)
+}
+
 .github-link:hover {
   opacity: 0.7;
 }
+
+/*RESPONSIVE*/
 
 @media (max-width: 600px) {
   .footer-content {
